@@ -6,7 +6,7 @@ library(HDInterval)
 # Functions that calculates F1 score from a prediction
 calc_F1 <- function(hdis, labels, thresh){
     # If lower hdi is larger than threshold, set positive
-    p_labs <- hdis[1,] > thresh
+    p_labs <- as.numeric(hdis[1,] > thresh)
 
     # Calculate true positives, false positives, and false negatives
     TP <- sum(p_labs & labels)  # the number of correct "positive" predictions
